@@ -1,3 +1,3 @@
-const API_URL = "http://localhost:3001";
+const API_URL = "http://backend-service:3001";
 
 export default API_URL;
