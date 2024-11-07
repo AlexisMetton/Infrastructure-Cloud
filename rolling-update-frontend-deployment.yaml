@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: cbartz57/front-infrastructure:latest
+          image: AlexisMetton/front-infrastructure:latest
           ports:
             - containerPort: 80
 ---
