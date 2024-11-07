@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 const JWT_SECRET = process.env.JWT_SECRET || "phrasesecret";
 const JWT_TIME = process.env.JWT_TIME || "1h";
 const corsOptions = {
-    origin: process.env.URL_ORIGIN || "http://localhost:3000",
+    origin: true,
     optionsSuccessStatus: 200
 }
 
