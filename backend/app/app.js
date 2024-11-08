@@ -9,6 +9,7 @@ const authMiddleware = require("./services/authentication/auth");
 const jwt = require('jsonwebtoken');
 const adminRouter = require("./routers/users");
 const assoRouter = require("./routers/countries");
+const client = require('prom-client');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -24,6 +25,16 @@ app.use(express.json());
 app.use(express.urlencoded())
 app.use("/users", adminRouter)
 app.use("/countries", assoRouter)
+
+// Collecte des métriques par Prometheus
+const collectDefaultMetrics = client.collectDefaultMetrics;
+collectDefaultMetrics();
+
+// Endpoint /metrics pour exposer les métriques
+app.get('/metrics', async (req, res) => {
+    res.set('Content-Type', client.register.contentType);
+    res.end(await client.register.metrics());
+});
 
 app.get('/full', (req, res) => {
     res.json(readCountries());
