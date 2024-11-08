@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt');
 const readCountries = require("./services/bdd/readCountries");
 const readUsers = require("./services/bdd/readUsers");
 const authMiddleware = require("./services/authentication/auth");
-const client = require('prom-client');
 const jwt = require('jsonwebtoken');
 const adminRouter = require("./routers/users");
 const assoRouter = require("./routers/countries");
@@ -20,36 +19,11 @@ const corsOptions = {
     optionsSuccessStatus: 200
 }
 
-// Configuration Prometheus pour les métriques par défaut
-const register = new client.Registry();
-client.collectDefaultMetrics({ register });
-
-// Compteur de requêtes HTTP
-const httpRequestCounter = new client.Counter({
-    name: 'http_requests_total',
-    help: 'Nombre total de requêtes HTTP',
-    labelNames: ['method', 'route', 'status']
-});
-register.registerMetric(httpRequestCounter);
-
-// Middleware pour incrémenter le compteur de requêtes
-app.use((req, res, next) => {
-    res.on('finish', () => {
-        httpRequestCounter.labels(req.method, req.path, res.statusCode).inc();
-    });
-    next();
-});
-
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded())
 app.use("/users", adminRouter)
 app.use("/countries", assoRouter)
-
-app.get('/metrics', async (req, res) => {
-    res.set('Content-Type', register.contentType);
-    res.end(await register.metrics());
-});
 
 app.get('/full', (req, res) => {
     res.json(readCountries());
