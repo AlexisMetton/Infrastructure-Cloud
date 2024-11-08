@@ -46,7 +46,6 @@ app.use(express.urlencoded())
 app.use("/users", adminRouter)
 app.use("/countries", assoRouter)
 
-// Endpoint pour les métriques Prometheus
 app.get('/metrics', async (req, res) => {
     res.set('Content-Type', register.contentType);
     res.end(await register.metrics());
