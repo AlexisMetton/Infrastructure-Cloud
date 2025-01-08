@@ -22,7 +22,7 @@ Ce schéma illustre la structure interne d'un déploiement Kubernetes. Le cluste
 \
 
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/architecture projet infra.png" alt=""><figcaption></figcaption></figure>
 
 
 

@@ -135,5 +135,5 @@ Ensuite, configurez les alertes en utilisant l'interface Prometheus ou la consol
 
 **Configuration d'alertes et interface Prometheus**
 
-<div><figure><img src="broken-reference" alt=""><figcaption></figcaption></figure> <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure></div>
+<div><figure><img src="../.gitbook/assets/Capture d&#x27;écran 2024-11-08 112341.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Capture d&#x27;écran 2024-11-08 173214.png" alt=""><figcaption></figcaption></figure></div>
 

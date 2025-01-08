@@ -15,10 +15,3 @@
 * [Tutoriels](etapes/tutoriels.md)
 * [Docker Hub](etapes/docker-hub.md)
 * [Runbooks](etapes/runbooks.md)
-
-***
-
-* [backend](backend/README.md)
-  * [Projet Backend - Association ANNA](backend/app/README.md)
-* [frontend](frontend/README.md)
-  * [Projet Frontend - Association ANNA](frontend/app/README.md)
